@@ -4,26 +4,33 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.mygame.td.game.GameActor;
 import com.mygame.td.game.GameStage;
 
-public abstract class Orc extends Actor {
+public abstract class Orc extends GameActor {
 	
 	public static int Direction_LEFT = 0;
 	public static int Direction_RIGHT = 1;
 	public static int Direction_UP = 2;
 	public static int Direction_DOWN = 3;
 	
-	public Animation animationUp = null;
-	public Animation animationDown = null;
-	public Animation animationLeft = null;
-	public Animation animationRight = null;
+	protected Animation animationUp = null;
+	protected Animation animationDown = null;
+	protected Animation animationLeft = null;
+	protected Animation animationRight = null;
 	
 	private Animation animation = null;
+	
+	private float totalDistance = 0;
 	
 	private float hp;
 	//移动速度要么是X轴，要么是Y轴，暂时没有考虑同时移动
 	public float moveSpeed = 1f;
 
+	public Orc(){
+		setType(ACTOR_ORC);
+	}
+	
 	@Override
 	public void draw(SpriteBatch batch, float parentAlpha) {
 		// TODO Auto-generated method stub
@@ -51,4 +58,11 @@ public abstract class Orc extends Actor {
 		this.hp = hp;
 	}
 
+	public float getTotalDistance(){
+		return totalDistance;
+	}
+	
+	public void setTotalDistance(float total){
+		totalDistance = total;
+	}
 }

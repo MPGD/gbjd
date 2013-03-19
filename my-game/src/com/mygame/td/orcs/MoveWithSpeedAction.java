@@ -56,25 +56,30 @@ public class MoveWithSpeedAction extends Action{
 		float moved = mOrc.moveSpeed * delta * dir;
 		
 		//Gdx.app.debug("xujihao", "speed is " + mOrc.moveSpeed + " moved is " + moved);
-		
+		float start, end;
 		boolean ret = false;
 		if(mStartX == -1 && mStartY == -1) begin();
 		if(isXAxisMove){ 
+			start = actor.getX();
 			if((actor.getX() + moved > mDesX && dir == 1) || (actor.getX() + moved < mDesX && dir == -1)){
 				actor.setX(mDesX);
 			}else{
 				actor.setX(actor.getX() + moved);
 			}
 			if(actor.getX() == mDesX) ret = true;
+			end = actor.getX();
 		}else{
+			start = actor.getY();
 			if((actor.getY() + moved > mDesY && dir == 1) || (actor.getY() + moved < mDesY && dir == -1)){
 				actor.setY(mDesY);
 			}else{
 				actor.setY(actor.getY() + moved);
 			}
 			if(actor.getY() == mDesY) ret = true;
+			end = actor.getY();
 		}
 
+		mOrc.setTotalDistance(mOrc.getTotalDistance() + Math.abs(end-start));
 //		if(ret){
 //			mStartX = -1;
 //			mStartY = -1;

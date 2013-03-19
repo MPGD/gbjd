@@ -17,6 +17,7 @@ public class WolfKnight extends Orc {
 	private float scaleXY = 0.8f;
 	
 	public WolfKnight() {
+		super();
 		// 加载纹理
 		Texture temp = new Texture(ORC_WOLFKNIGHT_IMG_SRC);
 
@@ -51,15 +52,15 @@ public class WolfKnight extends Orc {
 
 		setAnimation(aniUp, aniDown, aniLeft, aniRight);
 
-		MoveWithSpeedAction moveAction1 = MyActions.moveWithSpeed(this, 300, 200);
-		MoveWithSpeedAction moveAction2 = MyActions.moveWithSpeed(this, 300, 0);
-		MoveWithSpeedAction moveAction3 = MyActions.moveWithSpeed(this, 0, 0);
-		MoveWithSpeedAction moveAction4 = MyActions.moveWithSpeed(this, 0, 200);
+		MoveWithSpeedAction moveAction1 = OrcActions.moveWithSpeed(this, 300, 200);
+		MoveWithSpeedAction moveAction2 = OrcActions.moveWithSpeed(this, 300, 0);
+		MoveWithSpeedAction moveAction3 = OrcActions.moveWithSpeed(this, 0, 0);
+		MoveWithSpeedAction moveAction4 = OrcActions.moveWithSpeed(this, 0, 200);
 
-		ChangeDirectionAction cda1 = MyActions.changeDir(Orc.Direction_DOWN);
-		ChangeDirectionAction cda2 = MyActions.changeDir(Orc.Direction_LEFT);
-		ChangeDirectionAction cda3 = MyActions.changeDir(Orc.Direction_UP);
-		ChangeDirectionAction cda4 = MyActions.changeDir(Orc.Direction_RIGHT);
+		ChangeDirectionAction cda1 = OrcActions.changeDir(Orc.Direction_DOWN);
+		ChangeDirectionAction cda2 = OrcActions.changeDir(Orc.Direction_LEFT);
+		ChangeDirectionAction cda3 = OrcActions.changeDir(Orc.Direction_UP);
+		ChangeDirectionAction cda4 = OrcActions.changeDir(Orc.Direction_RIGHT);
 
 		addAction(Actions.forever(Actions.sequence(moveAction1, cda1,
 				moveAction2, cda2, moveAction3, cda3, moveAction4, cda4)));
