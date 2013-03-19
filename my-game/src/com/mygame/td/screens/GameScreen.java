@@ -14,7 +14,7 @@ public class GameScreen extends BaseScreen {
 
 	public GameScreen (Game game) {
 		super(game);
-	}
+	} 
 
 	@Override
 	public void show () {
